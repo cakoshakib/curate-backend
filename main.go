@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import "github.com/gin-gonic/gin"
+
+func helloHandler(c *gin.Context) {
+	c.JSON(200, gin.H{"message": "Hello, curate!"})
+}
 
 func main() {
-	fmt.Println("Hello, world!")
+	router := gin.Default()
+	router.GET("/hello", helloHandler)
+	router.Run(":8080")
 }
