@@ -20,7 +20,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - name: Build binary
         run: |
-          GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -o bootstrap -tags lambda.norpc main.go && zip deploy.zip bootstrap
+          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o bootstrap -tags lambda.norpc main.go && zip deploy.zip bootstrap
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
