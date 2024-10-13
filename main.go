@@ -1,13 +1,12 @@
 package main
 
-import "github.com/gin-gonic/gin"
-
-func helloHandler(c *gin.Context) {
-	c.JSON(200, gin.H{"message": "Hello, curate!"})
-}
+import (
+	"github.com/cakoshakib/curate-backend/handlers"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	router := gin.Default()
-	router.GET("/hello", helloHandler)
+	router.GET("/hello", handlers.HelloHandler)
 	router.Run(":8080")
 }
